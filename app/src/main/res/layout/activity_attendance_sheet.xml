@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".AttendanceSheetActivity">
+
+    <ProgressBar
+        android:id="@+id/pb_as"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:progress="50" />
+
+    <TextView
+        android:id="@+id/tv_as_attendance_sheet_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sheet Name: [name]"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_as_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule: [code] [name]"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_as_schedule_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Schedule Time: [days] [time]"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_as_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject: [name] ([code])"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_as_date_created"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date Created: MM/dd/YYYY"
+        tools:ignore="HardcodedText" />
+
+    <Switch
+        android:id="@+id/swtch_as_student_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Student List"
+        tools:ignore="HardcodedText"
+        android:enabled="false" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_student_attendances"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
