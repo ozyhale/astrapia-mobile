@@ -259,6 +259,11 @@ public class TeacherDashboardActivity extends AppCompatActivity {
             finish();
         }
 
+        if (id == R.id.menu_item_settings) {
+            intent = new Intent(this, TeacherSettingsActivity.class);
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

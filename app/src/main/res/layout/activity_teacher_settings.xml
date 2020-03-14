@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ParentSettingsActivity"
+    android:padding="8dp">
+
+    <ProgressBar
+        android:id="@+id/pbTS"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:progress="50" />
+
+    <TextView
+        android:id="@+id/tvTSFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etTSFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tvTSMiddleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Middle Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etTSMiddleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tvTSLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etTSLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnTSSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save" android:layout_gravity="right"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+</LinearLayout>
