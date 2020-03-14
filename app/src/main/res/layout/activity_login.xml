@@ -63,14 +63,32 @@
             android:layout_gravity="right"
             tools:ignore="RtlHardcoded" />
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/login"
-            tools:ignore="RtlHardcoded"
-            android:layout_marginTop="30dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/register"
+                style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Register"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:text="@string/login"
+                tools:ignore="ButtonStyle,RtlHardcoded"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
