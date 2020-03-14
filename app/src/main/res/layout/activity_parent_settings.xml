@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ParentSettingsActivity"
+    android:padding="8dp">
+
+    <ProgressBar
+        android:id="@+id/pbPS"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:progress="50" />
+
+    <TextView
+        android:id="@+id/tvPSFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etPSFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tvPSMiddleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Middle Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etPSMiddleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tvPSLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etPSLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnPSSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save" android:layout_gravity="right"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Student ID (School ID)"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etAddSchoolID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnPSAddSchoolID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add ID"
+        android:layout_gravity="right"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Student ID (School ID)"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etPSDeleteSchoolID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnPSDeleteSchoolID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete ID"
+        android:layout_gravity="right"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+</LinearLayout>

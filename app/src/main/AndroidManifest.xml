@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StudentSubjectsActivity"></activity>
+        <activity android:name=".ParentSettingsActivity"></activity>
+        <activity android:name=".StudentSubjectsActivity" />
         <activity android:name=".ParentDashboardActivity" />
         <activity android:name=".AttendanceSheetActivity" />
         <activity android:name=".SchedulesActivity" />

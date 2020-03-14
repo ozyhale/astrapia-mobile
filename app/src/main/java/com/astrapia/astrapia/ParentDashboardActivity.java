@@ -39,8 +39,12 @@ public class ParentDashboardActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+    }
 
+    @Override
+    protected void onResume() {
         loadStudents();
+        super.onResume();
     }
 
     private void loadStudents(){
@@ -98,6 +102,11 @@ public class ParentDashboardActivity extends AppCompatActivity {
             intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        if (id == R.id.menu_item_settings) {
+            intent = new Intent(this, ParentSettingsActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
