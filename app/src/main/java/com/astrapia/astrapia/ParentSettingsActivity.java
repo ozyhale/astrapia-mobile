@@ -154,7 +154,11 @@ public class ParentSettingsActivity extends AppCompatActivity implements View.On
                                         break;
                                     }
 
-                                    if(student.getParentId().equals(mAuth.getCurrentUser().getUid())){
+                                    if(task.getResult().size() == 0){
+                                        Toast.makeText(getApplicationContext(),"Student Id does not exists",Toast.LENGTH_LONG).show();
+                                        setEnabledAllButtons(true);
+                                        pbPS.setVisibility(View.GONE);
+                                    }else if(student.getParentId().equals(mAuth.getCurrentUser().getUid())){
                                         Toast.makeText(getApplicationContext(),"Student already added",Toast.LENGTH_LONG).show();
                                         setEnabledAllButtons(true);
                                         pbPS.setVisibility(View.GONE);
