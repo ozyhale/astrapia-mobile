@@ -180,7 +180,58 @@ public class ParentSettingsActivity extends AppCompatActivity implements View.On
         }
 
         if(v.getId() == R.id.btnPSDeleteSchoolID){
-            System.out.println("DELETE ID");
+            EditText etPSDeleteSchoolID = findViewById(R.id.etPSDeleteSchoolID);
+            String schoolId = etPSDeleteSchoolID.getText().toString();
+            if(!schoolId.equals("")){
+                db.collection("students")
+                        .whereEqualTo("school_id", schoolId)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if(task.isSuccessful()){
+
+                                    Student student = new Student();
+
+                                    for(QueryDocumentSnapshot document : task.getResult()){
+                                        String id = document.getId();
+                                        String firstName = document.getString("first_name");
+                                        String middleName = document.getString("middle_name");
+                                        String lastName = document.getString("last_name");
+                                        String parentId = document.getString("parent_id");
+
+                                        student.setId(id);
+                                        student.setFirstName(firstName);
+                                        student.setMiddleName(middleName);
+                                        student.setLastName(lastName);
+                                        student.setParentId(parentId);
+
+                                        break;
+                                    }
+
+                                    if(task.getResult().size() == 0){
+                                        Toast.makeText(getApplicationContext(),"Student/School Id does not exists",Toast.LENGTH_LONG).show();
+                                        setEnabledAllButtons(true);
+                                        pbPS.setVisibility(View.GONE);
+                                    }else if(student.getParentId().equals(mAuth.getCurrentUser().getUid())){
+                                        showConfirmDeleteChildDialog(student.getFullName(), student.getId());
+                                    }else if(!student.getParentId().equals("")){
+                                        Toast.makeText(getApplicationContext(),"Can't delete child from other parent",Toast.LENGTH_LONG).show();
+                                        setEnabledAllButtons(true);
+                                        pbPS.setVisibility(View.GONE);
+                                    }else{
+                                        Toast.makeText(getApplicationContext(),"Something happen",Toast.LENGTH_LONG).show();
+                                        setEnabledAllButtons(true);
+                                        pbPS.setVisibility(View.GONE);
+                                    }
+                                }
+                            }
+                        });
+            }else{
+                Toast.makeText(getApplicationContext(),"Oops! you forgot something",Toast.LENGTH_LONG).show();
+                setEnabledAllButtons(true);
+                pbPS.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -208,6 +259,49 @@ public class ParentSettingsActivity extends AppCompatActivity implements View.On
                     }
                 });
         builder1.create().show();
+    }
+
+    private void showConfirmDeleteChildDialog(String studentFullName, final String studentId){
+
+        pbPS.setVisibility(View.GONE);
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setTitle("Please confirm if this is your child")
+                .setMessage(studentFullName)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        deleteStudentSchoolId(studentId);
+                    }})
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        setEnabledAllButtons(false);
+                    }
+                });
+        builder1.create().show();
+    }
+
+    private void deleteStudentSchoolId(String id){
+
+        final Button btn = findViewById(R.id.btnPSAddSchoolID);
+
+        pbPS.setVisibility(View.VISIBLE);
+
+        db.collection("students")
+                .document(id)
+                .update("parent_id", "")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            onBackPressed();
+                            Toast.makeText(getApplicationContext(),"Student deleted",Toast.LENGTH_LONG).show();
+                        }
+
+                        setEnabledAllButtons(true);
+                        pbPS.setVisibility(View.GONE);
+                    }
+                });
     }
 
     private void saveStudentSchoolId(String id, String parentId){
