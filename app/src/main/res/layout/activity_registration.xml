@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/svReg"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".RegistrationActivity"
-        android:padding="8dp">
+        android:padding="8dp"
+        tools:context=".RegistrationActivity">
 
         <ProgressBar
             android:id="@+id/pbReg"
@@ -32,9 +33,9 @@
             android:id="@+id/etRegFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textPersonName"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <TextView
@@ -48,9 +49,9 @@
             android:id="@+id/etRegMiddleName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textPersonName"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <TextView
@@ -64,9 +65,9 @@
             android:id="@+id/etRegLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textPersonName"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <TextView
@@ -80,9 +81,9 @@
             android:id="@+id/etRegEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <TextView
@@ -96,9 +97,9 @@
             android:id="@+id/etRegPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textPassword"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <TextView
@@ -112,9 +113,9 @@
             android:id="@+id/etRegRetypePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textPassword"
-            android:autofillHints=""
             tools:ignore="LabelFor" />
 
         <RadioGroup
@@ -127,26 +128,26 @@
                 android:id="@+id/rbRegTeacher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Teacher"
                 android:layout_weight="1"
-                tools:ignore="HardcodedText"
-                android:onClick="onRadioButtonClicked" />
+                android:onClick="onRadioButtonClicked"
+                android:text="Teacher"
+                tools:ignore="HardcodedText" />
 
             <RadioButton
                 android:id="@+id/rbRegParent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Parent"
                 android:layout_weight="1"
-                tools:ignore="HardcodedText"
-                android:onClick="onRadioButtonClicked" />
+                android:onClick="onRadioButtonClicked"
+                android:text="Parent"
+                tools:ignore="HardcodedText" />
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvRegSchoolID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Student ID (School ID) (separated by comma)"
+            android:text="Student ID (School ID) (separated by comma, max of 10)"
             android:visibility="gone"
             tools:ignore="HardcodedText" />
 
@@ -157,8 +158,8 @@
             android:autofillHints=""
             android:ems="10"
             android:inputType="textPersonName"
-            tools:ignore="LabelFor"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/tvRegTeacherCode"
@@ -175,14 +176,15 @@
             android:autofillHints=""
             android:ems="10"
             android:inputType="textPersonName"
-            tools:ignore="LabelFor"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:ignore="LabelFor" />
 
         <Button
             android:id="@+id/btnRegRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:onClick="register"
             android:text="Register"
             tools:ignore="HardcodedText,RtlHardcoded" />
 
