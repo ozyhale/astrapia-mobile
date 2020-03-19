@@ -211,8 +211,8 @@ public class AttendanceSheetActivity extends AppCompatActivity {
             for (QueryDocumentSnapshot document : task.getResult()) {
 
                 String firstName = document.getString("first_name");
-                String lastName = document.getString("middle_name");
-                String middleName = document.getString("last_name");
+                String middleName = document.getString("middle_name");
+                String lastName = document.getString("last_name");
                 String studentId = document.getString("student_id");
                 String attendanceSheetId = bundle.getString("id");
 
@@ -237,20 +237,20 @@ public class AttendanceSheetActivity extends AppCompatActivity {
         recyclerView.setAdapter(studentAttendanceAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Switch swtchASStudentList = findViewById(R.id.swtch_as_student_list);
-        swtchASStudentList.setEnabled(true);
-        swtchASStudentList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Switch sw = (Switch) v;
-                RecyclerView.LayoutManager recyclerViewLayoutManager = recyclerView.getLayoutManager();
-
-                for (int i=0;i<recyclerViewLayoutManager.getItemCount();i++){
-                    CheckBox cbSAStatus = recyclerViewLayoutManager.findViewByPosition(i).findViewById(R.id.cb_sa_status);
-                    cbSAStatus.setEnabled(sw.isChecked());
-                }
-            }
-        });
+//        Switch swtchASStudentList = findViewById(R.id.swtch_as_student_list);
+//        swtchASStudentList.setEnabled(true);
+//        swtchASStudentList.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Switch sw = (Switch) v;
+//                RecyclerView.LayoutManager recyclerViewLayoutManager = recyclerView.getLayoutManager();
+//
+//                for (int i=0;i<recyclerViewLayoutManager.getItemCount();i++){
+//                    CheckBox cbSAStatus = recyclerViewLayoutManager.findViewByPosition(i).findViewById(R.id.cb_sa_status);
+//                    cbSAStatus.setEnabled(sw.isChecked());
+//                }
+//            }
+//        });
 
         findViewById(R.id.pb_as).setVisibility(View.GONE);
     }
